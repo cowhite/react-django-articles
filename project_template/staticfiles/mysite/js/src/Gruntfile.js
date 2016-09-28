@@ -17,11 +17,17 @@ module.exports = function(grunt) {
         src: [
         '../../css/app.css'
         ],
-        dest: '../dist/app.css'
+        dest: '../../dist/app.css'
       },
       libjs: {
-        src: [],
-        dest: '../dist/vendor.js'
+        src: [
+          'bower_components/react/react.js',
+          'bower_components/react/react-dom.js',
+          'bower_components/babel/browser.js',
+          'bower_components/jquery/dist/jquery.js',
+          'bower_components/remarkable/dist/remarkable.js',
+        ],
+        dest: '../../dist/vendor.js'
       },
       appjs: {
         src: [
@@ -29,7 +35,7 @@ module.exports = function(grunt) {
           'apps/*.js',
           'apps/**/*.js',
         ],
-        dest: '../dist/app.js'
+        dest: '../../dist/app.js'
       }
     },
     cssmin: {
@@ -39,8 +45,8 @@ module.exports = function(grunt) {
       },
       target: {
         files: {
-          '../dist/app.min.css': [
-            '../dist/app.css'
+          '../../dist/app.min.css': [
+            '../../dist/app.css'
           ]
         }
       }
@@ -48,9 +54,9 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files: {
-          '../dist/app.min.js': [
-            '../dist/vendor.js',
-            '../dist/app.js'
+          '../../dist/app.min.js': [
+            '../../dist/vendor.js',
+            '../../dist/app.js'
           ]
         }
       }
