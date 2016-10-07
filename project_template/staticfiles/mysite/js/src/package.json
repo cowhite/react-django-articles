@@ -9,10 +9,36 @@
   "author": "bhaskar@cowhite.com",
   "license": "ISC",
   "dependencies": {
+    "es6-promise": "^3.1.2",
     "grunt": "^1.0.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^2.0.0"
+    "grunt-contrib-uglify": "^2.0.0",
+    "react": "^15.3.2",
+    "react-cookie": "^0.4.5",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.0",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^1.0.3",
+    "whatwg-fetch": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.6.5",
+    "babel-eslint": "^5.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.13.0",
+    "eslint": "^2.2.0",
+    "react-hot-loader": "^1.3.0",
+    "redux-devtools": "^3.1.1",
+    "webpack": "^1.13.2",
+    "webpack-bundle-tracker": "0.0.93",
+    "webpack-dev-server": "^1.16.1"
   }
 }

@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd party apps
+    'rest_framework',
+    'webpack_loader',
+
+    # custom apps
+    'articles',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +129,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "staticfiles"),
 )
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': '/mysite/dist/',  # end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'staticfiles/mysite/js/src/webpack-stats-local.json'),
+    }
+}
