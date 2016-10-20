@@ -21,16 +21,14 @@ class ArticleTests(APITestCase):
 
         ''' Logged in '''
 
-        #cl = Client()
         cl = APIClient()
         cl.login(username="testuser", password="a")
 
         ''' Post Article Details after Login '''
 
         url_articles = "/api/articles/"
-        #url_articles = reverse("articles")
         data_new = {
-            "title": 'abcd',
+            "title": 'article1',
             "content": 'Hi'
         }
 
@@ -40,19 +38,32 @@ class ArticleTests(APITestCase):
         self.assertEqual(res_new_article.data['title'], data_new['title'])
 
         ''' Modify Article Details '''
+
         article_id = res_new_article.data['id']
-        #import ipdb;ipdb.set_trace()
-        # url_article = "/api/articles/{}/".format(article_id)
-        # factory = APIRequestFactory()
+        url_article = "/api/articles/{}/".format(article_id)
+        factory = APIRequestFactory()
 
-        # modified_data = {
-        #     "content" : 'Hello'
-        # }
+        modified_data = {
+            "title": 'article1',
+            "content" : 'Hello'
+        }
 
-        # res_modified_article = cl.put(url_article, data = modified_data, format='json')
-        # self.assertEqual(res_modified_article.status_code, 200)
-        # self.assertEqual(Article.objects.count(), 1)
-        # self.assertEqual(res_modified_article.data['title'], modified_data['title'])
+        res_modified_article = cl.patch(
+            url_article,
+            json.dumps({'content': 'Hello'}),
+            content_type='application/json')
+
+        self.assertEqual(res_modified_article.status_code, 200)
+        self.assertEqual(Article.objects.count(), 1)
+        self.assertEqual(res_modified_article.data['title'], data_new['title'])
+
+        res_modified_article = cl.put(
+            url_article,
+            modified_data,
+            format='json')
+        self.assertEqual(res_modified_article.status_code, 200)
+        self.assertEqual(Article.objects.count(), 1)
+        self.assertEqual(res_modified_article.data['content'], modified_data['content'])
 
 
         '''Logged out '''
