@@ -12,7 +12,7 @@ from .serializers import *
 class ArticleListView(generics.ListCreateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    #permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         return Article.objects.all()
@@ -24,7 +24,7 @@ class ArticleListView(generics.ListCreateAPIView):
 
 class ArticleDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ArticleSerializer
-    #permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def get_object(self):
         return get_object_or_404(Article, id=self.kwargs.get('pk'))
