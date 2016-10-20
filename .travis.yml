@@ -1,0 +1,11 @@
+language: python
+python:
+  - "2.7"
+# Install dependencies
+install:
+    - "pip install -r project_template/requirements.txt"
+    - "pip install coverage coveralls"
+
+script: coverage run project_template/manage.py test articles
+
+after_success: coveralls
